@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<conio.h>
+ 
+ 
+int main()
+ 
+ {
+ 	
+ int balance = 15000;
+ int pin = 1234;
+ int pin2;
+ int newtransaction = 1;
+ int i;
+  
+ printf("***Welcome To Everest Bank ATM Machine*** \n");
+ printf("Enter your Pin: ");
+ scanf("%d", &pin2);  
+
+ for(i=1; (pin != pin2); ++i)
+ {
+ 	if(i==3)
+ 	{
+ 		printf("Invalid password again.You are a fraud!!! \n");
+ 		return 0;
+	}
+	printf("Please enter your pin number\n");
+	scanf("%d", &pin2);
+ }
+ 
+while(newtransaction == 1)
+{
+     int option;
+      
+     printf("\nPlease pick an option \n");
+     printf("1.  Check your balance \n");
+     printf("2.  Deposit your money\n");
+     printf("3.  Withdraw your money\n");
+     scanf("%d" , &option );
+    
+	if (option == 1)
+    {
+    printf("Your current balance is : %d \n", balance);
+    }
+    else if (option == 2)
+    {
+        {
+        int deposit;
+	    printf("The current balance for your account is %d\n", balance);
+		printf("Enter the amount you want to deposit:\t");
+		scanf("%d", &deposit);
+		balance+=deposit;
+		printf("Your total balance is %d\n", balance);	 	
+		}
+    }
+	else if (option == 3)
+    {
+		int withdraw;
+		int j;
+		int attempt=3;
+		printf("The current balance for your account is %d\n", balance); 
+		printf("Enter the amount you want to withdraw:\t");
+		scanf("%d", &withdraw);
+		for(j=1;j<=1; j++)
+		{
+		
+   			if (withdraw > balance)
+			{
+				printf("\n Insufficient Balance\n");
+			}
+			else if(withdraw < balance)
+     		{
+	        	balance = balance - withdraw;
+				printf("\n Your balance is %d\n", balance);
+	    	}
+			else
+			{
+			printf("Not allowed\n");	
+			}  
+		
+		}
+	}
+    else
+    {
+        printf("Invalid Transaction.\n");
+    }
+    
+	newtransaction = 0;
+    while(newtransaction != 1 && newtransaction !=2)
+    {
+      printf("\n\nDo you want a new transaction?\n");
+      printf("1 - Yes\n");
+      printf("2 - No\n");
+      scanf("%d", &newtransaction);
+    }
+} 
+  getch();
+  return 0;
+   
+}
+
